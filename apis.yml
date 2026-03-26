@@ -1,11 +1,19 @@
 aid: open-liberty
 name: Open Liberty
 description: >-
-  Open Liberty is a lightweight open source Java application server for building cloud native microservices with Jakarta EE and MicroProfile support.
+  Open Liberty is a lightweight, open source Java application server from IBM
+  for building cloud-native microservices and applications with full support
+  for Jakarta EE and MicroProfile.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Microservices
+  - Java
+  - Cloud Native
+  - Jakarta EE
+  - MicroProfile
+  - Application Server
+  - IBM
 url: >-
   https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -15,14 +23,34 @@ apis:
   - aid: open-liberty:open-liberty
     name: Open Liberty
     description: >-
-      Open Liberty is a lightweight open source Java application server for building cloud native microservices with Jakarta EE and MicroProfile support.
-    humanURL: https://github.com/api-evangelist/open-liberty
+      Open Liberty is a lightweight, open source Java application server from IBM
+      for building cloud-native microservices and applications with full support
+      for Jakarta EE and MicroProfile.
+    humanURL: https://openliberty.io/
     tags:
       - Microservices
-    properties: []
+      - Java
+      - Cloud Native
+      - Jakarta EE
+      - MicroProfile
+      - Application Server
+      - IBM
+    properties:
+      - type: Documentation
+        url: https://openliberty.io/docs/
+      - type: Getting Started
+        url: https://openliberty.io/start/
 common:
   - type: Website
-    url: https://github.com/api-evangelist/open-liberty
+    url: https://openliberty.io/
+  - type: Documentation
+    url: https://openliberty.io/docs/
+  - type: Getting Started
+    url: https://openliberty.io/start/
+  - type: GitHub Organization
+    url: https://github.com/OpenLiberty
+  - type: Blog
+    url: https://openliberty.io/blog/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
