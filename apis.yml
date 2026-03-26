@@ -40,6 +40,12 @@ apis:
         url: https://openliberty.io/docs/
       - type: Getting Started
         url: https://openliberty.io/start/
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/json-schema/server-config.json
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/openapi/open-liberty-admin.json
 common:
   - type: Website
     url: https://openliberty.io/

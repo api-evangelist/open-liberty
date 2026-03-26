@@ -1,0 +1,368 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Open Liberty Admin REST API",
+    "description": "REST management API provided by Open Liberty for managing the server, deploying applications, querying MicroProfile Health and Metrics, and managing server configuration through the REST connector.",
+    "version": "24.0.0",
+    "contact": {
+      "name": "Open Liberty",
+      "url": "https://openliberty.io/"
+    },
+    "license": {
+      "name": "Eclipse Public License 1.0",
+      "url": "https://www.eclipse.org/legal/epl-v10.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://localhost:9443",
+      "description": "Default Open Liberty HTTPS admin endpoint"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "getOverallHealth",
+        "summary": "Overall health check",
+        "description": "Returns the overall health status combining all readiness and liveness checks (MicroProfile Health).",
+        "tags": ["Health"],
+        "responses": {
+          "200": {
+            "description": "All health checks pass.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "One or more health checks failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "operationId": "getReadiness",
+        "summary": "Readiness health check",
+        "description": "Returns readiness status of the server and deployed applications.",
+        "tags": ["Health"],
+        "responses": {
+          "200": {
+            "description": "Server is ready.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Server is not ready.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health/live": {
+      "get": {
+        "operationId": "getLiveness",
+        "summary": "Liveness health check",
+        "description": "Returns liveness status of the server.",
+        "tags": ["Health"],
+        "responses": {
+          "200": {
+            "description": "Server is alive.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Server is not alive.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health/started": {
+      "get": {
+        "operationId": "getStartup",
+        "summary": "Startup health check",
+        "description": "Returns startup status of the server.",
+        "tags": ["Health"],
+        "responses": {
+          "200": {
+            "description": "Server has started.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Server has not completed startup."
+          }
+        }
+      }
+    },
+    "/metrics": {
+      "get": {
+        "operationId": "getAllMetrics",
+        "summary": "Get all metrics",
+        "description": "Returns all MicroProfile Metrics in Prometheus or JSON format.",
+        "tags": ["Metrics"],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Response format.",
+            "schema": {
+              "type": "string",
+              "enum": ["application/json", "text/plain"],
+              "default": "text/plain"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All metrics.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "Prometheus format metrics."
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/metrics/base": {
+      "get": {
+        "operationId": "getBaseMetrics",
+        "summary": "Get base metrics",
+        "description": "Returns base JVM and runtime metrics.",
+        "tags": ["Metrics"],
+        "responses": {
+          "200": {
+            "description": "Base metrics."
+          }
+        }
+      }
+    },
+    "/metrics/vendor": {
+      "get": {
+        "operationId": "getVendorMetrics",
+        "summary": "Get vendor metrics",
+        "description": "Returns Liberty-specific vendor metrics.",
+        "tags": ["Metrics"],
+        "responses": {
+          "200": {
+            "description": "Vendor metrics."
+          }
+        }
+      }
+    },
+    "/metrics/application": {
+      "get": {
+        "operationId": "getApplicationMetrics",
+        "summary": "Get application metrics",
+        "description": "Returns application-defined metrics.",
+        "tags": ["Metrics"],
+        "responses": {
+          "200": {
+            "description": "Application metrics."
+          }
+        }
+      }
+    },
+    "/ibm/api/config": {
+      "get": {
+        "operationId": "getServerConfig",
+        "summary": "Get server configuration",
+        "description": "Returns the effective server configuration as JSON via the Admin REST Connector.",
+        "tags": ["Configuration"],
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Server configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized."
+          }
+        }
+      }
+    },
+    "/ibm/api/config/{elementName}": {
+      "get": {
+        "operationId": "getConfigElement",
+        "summary": "Get specific configuration element",
+        "description": "Returns a specific configuration element (e.g., dataSource, httpEndpoint) from the server config.",
+        "tags": ["Configuration"],
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "elementName",
+            "in": "path",
+            "required": true,
+            "description": "Configuration element name.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Configuration element.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized."
+          },
+          "404": {
+            "description": "Element not found."
+          }
+        }
+      }
+    },
+    "/ibm/api/validation": {
+      "get": {
+        "operationId": "validateConfig",
+        "summary": "Validate server configuration",
+        "description": "Validates the server configuration and returns any warnings or errors.",
+        "tags": ["Configuration"],
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Validation results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HealthResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["UP", "DOWN"]
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the health check."
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["UP", "DOWN"]
+                },
+                "data": {
+                  "type": "object",
+                  "description": "Additional data from the health check.",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Admin user credentials configured in server.xml."
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Health",
+      "description": "MicroProfile Health check endpoints."
+    },
+    {
+      "name": "Metrics",
+      "description": "MicroProfile Metrics endpoints."
+    },
+    {
+      "name": "Configuration",
+      "description": "Server configuration management via Admin REST Connector."
+    }
+  ]
+}

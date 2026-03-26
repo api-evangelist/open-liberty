@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/open-liberty/json-schema/server-config.json",
+  "title": "Open Liberty Server Configuration",
+  "description": "JSON Schema representing the Open Liberty server.xml configuration structure including features, HTTP endpoints, application definitions, data sources, and security.",
+  "type": "object",
+  "properties": {
+    "server": {
+      "type": "object",
+      "description": "Root server element.",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the server."
+        },
+        "featureManager": {
+          "type": "object",
+          "description": "Feature manager to enable Liberty features.",
+          "properties": {
+            "feature": {
+              "type": "array",
+              "description": "List of features to enable.",
+              "items": {
+                "type": "string",
+                "description": "Feature name (e.g., jaxrs-2.1, mpHealth-4.0, mpConfig-3.0)."
+              }
+            }
+          }
+        },
+        "httpEndpoint": {
+          "type": "object",
+          "description": "HTTP endpoint configuration.",
+          "properties": {
+            "id": {
+              "type": "string",
+              "default": "defaultHttpEndpoint"
+            },
+            "host": {
+              "type": "string",
+              "default": "*"
+            },
+            "httpPort": {
+              "type": "integer",
+              "default": 9080,
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "httpsPort": {
+              "type": "integer",
+              "default": 9443,
+              "minimum": 0,
+              "maximum": 65535
+            }
+          },
+          "additionalProperties": true
+        },
+        "application": {
+          "type": "array",
+          "description": "Application deployment definitions.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique application identifier."
+              },
+              "name": {
+                "type": "string",
+                "description": "Application name."
+              },
+              "type": {
+                "type": "string",
+                "description": "Application type.",
+                "enum": ["war", "ear", "eba", "rar"]
+              },
+              "location": {
+                "type": "string",
+                "description": "Path to the application archive."
+              },
+              "context-root": {
+                "type": "string",
+                "description": "Context root for the application."
+              }
+            },
+            "required": ["location"],
+            "additionalProperties": true
+          }
+        },
+        "dataSource": {
+          "type": "array",
+          "description": "Data source definitions.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "jndiName": {
+                "type": "string",
+                "description": "JNDI name for the data source."
+              },
+              "jdbcDriverRef": {
+                "type": "string"
+              },
+              "properties": {
+                "type": "object",
+                "properties": {
+                  "serverName": {
+                    "type": "string"
+                  },
+                  "portNumber": {
+                    "type": "integer"
+                  },
+                  "databaseName": {
+                    "type": "string"
+                  },
+                  "user": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "URL": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "jdbcDriver": {
+          "type": "array",
+          "description": "JDBC driver definitions.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "libraryRef": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "keyStore": {
+          "type": "object",
+          "description": "SSL keystore configuration.",
+          "properties": {
+            "id": {
+              "type": "string",
+              "default": "defaultKeyStore"
+            },
+            "password": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": ["PKCS12", "JKS", "JCEKS"]
+            }
+          },
+          "additionalProperties": true
+        },
+        "ssl": {
+          "type": "object",
+          "description": "SSL configuration.",
+          "properties": {
+            "id": {
+              "type": "string",
+              "default": "defaultSSLConfig"
+            },
+            "keyStoreRef": {
+              "type": "string"
+            },
+            "trustStoreRef": {
+              "type": "string"
+            },
+            "sslProtocol": {
+              "type": "string",
+              "default": "TLSv1.2"
+            }
+          },
+          "additionalProperties": true
+        },
+        "mpMetrics": {
+          "type": "object",
+          "description": "MicroProfile Metrics configuration.",
+          "properties": {
+            "authentication": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "additionalProperties": true
+        },
+        "mpHealth": {
+          "type": "object",
+          "description": "MicroProfile Health configuration.",
+          "additionalProperties": true
+        },
+        "logging": {
+          "type": "object",
+          "description": "Logging configuration.",
+          "properties": {
+            "traceSpecification": {
+              "type": "string",
+              "description": "Trace specification string."
+            },
+            "consoleLogLevel": {
+              "type": "string",
+              "enum": ["INFO", "AUDIT", "WARNING", "ERROR", "OFF"],
+              "default": "AUDIT"
+            },
+            "consoleFormat": {
+              "type": "string",
+              "enum": ["DEV", "SIMPLE", "JSON", "TBASIC"],
+              "default": "DEV"
+            },
+            "consoleSource": {
+              "type": "string",
+              "description": "Comma-separated list of sources to include."
+            },
+            "maxFileSize": {
+              "type": "integer",
+              "description": "Maximum log file size in MB.",
+              "default": 20
+            },
+            "maxFiles": {
+              "type": "integer",
+              "description": "Maximum number of log files.",
+              "default": 2
+            }
+          },
+          "additionalProperties": true
+        },
+        "quickStartSecurity": {
+          "type": "object",
+          "description": "Quick start security registry.",
+          "properties": {
+            "userName": {
+              "type": "string"
+            },
+            "userPassword": {
+              "type": "string"
+            }
+          }
+        },
+        "administrator-role": {
+          "type": "object",
+          "description": "Administrator role mapping.",
+          "properties": {
+            "user": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
