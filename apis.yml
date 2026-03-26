@@ -1,0 +1,28 @@
+aid: open-liberty
+name: Open Liberty
+description: >-
+  Open Liberty is a lightweight open source Java application server for building cloud native microservices with Jakarta EE and MicroProfile support.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Microservices
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: open-liberty:open-liberty
+    name: Open Liberty
+    description: >-
+      Open Liberty is a lightweight open source Java application server for building cloud native microservices with Jakarta EE and MicroProfile support.
+    humanURL: https://github.com/api-evangelist/open-liberty
+    tags:
+      - Microservices
+    properties: []
+common:
+  - type: Website
+    url: https://github.com/api-evangelist/open-liberty
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
