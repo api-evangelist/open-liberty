@@ -7,13 +7,13 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Microservices
-  - Java
-  - Cloud Native
-  - Jakarta EE
-  - MicroProfile
   - Application Server
+  - Cloud Native
   - IBM
+  - Jakarta EE
+  - Java
+  - MicroProfile
+  - Microservices
 url: >-
   https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -28,13 +28,13 @@ apis:
       for Jakarta EE and MicroProfile.
     humanURL: https://openliberty.io/
     tags:
-      - Microservices
-      - Java
-      - Cloud Native
-      - Jakarta EE
-      - MicroProfile
       - Application Server
+      - Cloud Native
       - IBM
+      - Jakarta EE
+      - Java
+      - MicroProfile
+      - Microservices
     properties:
       - type: Documentation
         url: https://openliberty.io/docs/
