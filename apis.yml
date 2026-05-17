@@ -38,7 +38,7 @@ apis:
     properties:
       - type: Documentation
         url: https://openliberty.io/docs/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://openliberty.io/start/
       - type: JSONSchema
         url: >-
@@ -51,9 +51,9 @@ common:
     url: https://openliberty.io/
   - type: Documentation
     url: https://openliberty.io/docs/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://openliberty.io/start/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/OpenLiberty
   - type: Blog
     url: https://openliberty.io/blog/
