@@ -1,0 +1,145 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Open Liberty Admin REST API — Configuration
+  description: 'Open Liberty Admin REST API — Configuration. 3 operations. Lead operation: Get server configuration. Self-contained
+    Naftiko capability covering one Open Liberty business surface.'
+  tags:
+  - Open Liberty
+  - Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPEN_LIBERTY_API_KEY: OPEN_LIBERTY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: admin-configuration
+    baseUri: https://localhost:9443
+    description: Open Liberty Admin REST API — Configuration business capability. Self-contained, no shared references.
+    resources:
+    - name: ibm-api-config
+      path: /ibm/api/config
+      operations:
+      - name: getserverconfig
+        method: GET
+        description: Get server configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ibm-api-config-elementName
+      path: /ibm/api/config/{elementName}
+      operations:
+      - name: getconfigelement
+        method: GET
+        description: Get specific configuration element
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: elementName
+          in: path
+          type: string
+          description: Configuration element name.
+          required: true
+    - name: ibm-api-validation
+      path: /ibm/api/validation
+      operations:
+      - name: validateconfig
+        method: GET
+        description: Validate server configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.OPEN_LIBERTY_USER}}'
+      password: '{{env.OPEN_LIBERTY_PASS}}'
+  exposes:
+  - type: rest
+    namespace: admin-configuration-rest
+    port: 8080
+    description: REST adapter for Open Liberty Admin REST API — Configuration. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/ibm/api/config
+      name: ibm-api-config
+      description: REST surface for ibm-api-config.
+      operations:
+      - method: GET
+        name: getserverconfig
+        description: Get server configuration
+        call: admin-configuration.getserverconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ibm/api/config/{elementname}
+      name: ibm-api-config-elementname
+      description: REST surface for ibm-api-config-elementName.
+      operations:
+      - method: GET
+        name: getconfigelement
+        description: Get specific configuration element
+        call: admin-configuration.getconfigelement
+        with:
+          elementName: rest.elementName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ibm/api/validation
+      name: ibm-api-validation
+      description: REST surface for ibm-api-validation.
+      operations:
+      - method: GET
+        name: validateconfig
+        description: Validate server configuration
+        call: admin-configuration.validateconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: admin-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Open Liberty Admin REST API — Configuration. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-server-configuration
+      description: Get server configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: admin-configuration.getserverconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-specific-configuration-element
+      description: Get specific configuration element
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: admin-configuration.getconfigelement
+      with:
+        elementName: tools.elementName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: validate-server-configuration
+      description: Validate server configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: admin-configuration.validateconfig
+      outputParameters:
+      - type: object
+        mapping: $.
