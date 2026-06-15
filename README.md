@@ -2,12 +2,11 @@
 
 Open Liberty is a lightweight, open source Java application server from IBM for building cloud-native microservices and applications with full support for Jakarta EE and MicroProfile.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml)
 
 ## Scope
 
 - **Type:** Index
-- **Image:** apis-json-logo.jpg
 
 ## Tags
 
@@ -22,7 +21,7 @@ Open Liberty is a lightweight, open source Java application server from IBM for 
 ## Timestamps
 
 - **Created:** 2026-03-26
-- **Modified:** 2026-04-28
+- **Modified:** 2026-05-19
 
 ## APIs
 
@@ -30,7 +29,7 @@ Open Liberty is a lightweight, open source Java application server from IBM for 
 
 Open Liberty is a lightweight, open source Java application server from IBM for building cloud-native microservices and applications with full support for Jakarta EE and MicroProfile.
 
-**Human URL:** [https://openliberty.io/](https://openliberty.io/)
+- **Human URL:** [https://openliberty.io/](https://openliberty.io/)
 
 #### Tags
 
@@ -46,8 +45,10 @@ Open Liberty is a lightweight, open source Java application server from IBM for 
 
 - [Documentation](https://openliberty.io/docs/)
 - [Getting Started](https://openliberty.io/start/)
-- [JSONSchema](json-schema/server-config.json)
-- [OpenAPI](openapi/open-liberty-admin.json)
+- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/json-schema/server-config.json) — [JSON Schema](https://json-schema.org/specification)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/openapi/open-liberty-admin.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/open-liberty-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/open-liberty-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ## Common Properties
 
@@ -60,5 +61,4 @@ Open Liberty is a lightweight, open source Java application server from IBM for 
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com

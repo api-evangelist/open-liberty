@@ -1,0 +1,184 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open Liberty Admin REST API",
+    "version": "24.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Overall health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/health"
+          },
+          "docs": "Returns the overall health status combining all readiness and liveness checks (MicroProfile Health)."
+        },
+        {
+          "info": {
+            "name": "Readiness health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/health/ready"
+          },
+          "docs": "Returns readiness status of the server and deployed applications."
+        },
+        {
+          "info": {
+            "name": "Liveness health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/health/live"
+          },
+          "docs": "Returns liveness status of the server."
+        },
+        {
+          "info": {
+            "name": "Startup health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/health/started"
+          },
+          "docs": "Returns startup status of the server."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/metrics",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns all MicroProfile Metrics in Prometheus or JSON format."
+        },
+        {
+          "info": {
+            "name": "Get base metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/metrics/base"
+          },
+          "docs": "Returns base JVM and runtime metrics."
+        },
+        {
+          "info": {
+            "name": "Get vendor metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/metrics/vendor"
+          },
+          "docs": "Returns Liberty-specific vendor metrics."
+        },
+        {
+          "info": {
+            "name": "Get application metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/metrics/application"
+          },
+          "docs": "Returns application-defined metrics."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get server configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/ibm/api/config",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns the effective server configuration as JSON via the Admin REST Connector."
+        },
+        {
+          "info": {
+            "name": "Get specific configuration element",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/ibm/api/config/:elementName",
+            "params": [
+              {
+                "name": "elementName",
+                "value": "",
+                "type": "path",
+                "description": "Configuration element name."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns a specific configuration element (e.g., dataSource, httpEndpoint) from the server config."
+        },
+        {
+          "info": {
+            "name": "Validate server configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/ibm/api/validation",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates the server configuration and returns any warnings or errors."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

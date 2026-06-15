@@ -1,0 +1,1174 @@
+{
+  "item": [
+    {
+      "id": "79f07c8e-fbee-447b-8937-3ac3574e6137",
+      "name": "Health",
+      "description": {
+        "content": "MicroProfile Health check endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76ec049d-0150-48e9-a111-c63bd492632f",
+          "name": "Overall health check",
+          "request": {
+            "name": "Overall health check",
+            "description": {
+              "content": "Returns the overall health status combining all readiness and liveness checks (MicroProfile Health).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0eaecdd3-4df6-4e24-a323-8b986a2783fa",
+              "name": "All health checks pass.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"DOWN\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 8195.36819874986,\n        \"key_1\": 4032.1367465048284,\n        \"key_2\": 7568\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61c61eee-cd6c-4523-9f3f-b6bd4d4f7e53",
+              "name": "One or more health checks failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1763,\n        \"key_1\": 8226.685413135008\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4da2488-65d6-4486-85eb-c51743f9ce3e",
+          "name": "Readiness health check",
+          "request": {
+            "name": "Readiness health check",
+            "description": {
+              "content": "Returns readiness status of the server and deployed applications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health",
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85b1733c-ce34-42a6-9078-a7769f0f57ee",
+              "name": "Server is ready.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1763,\n        \"key_1\": 8226.685413135008\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "694542b1-13f3-4f72-9b82-376dd330af91",
+              "name": "Server is not ready.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1763,\n        \"key_1\": 8226.685413135008\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74ecc839-ab51-419f-9235-c9c592a02447",
+          "name": "Liveness health check",
+          "request": {
+            "name": "Liveness health check",
+            "description": {
+              "content": "Returns liveness status of the server.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a4e95f6-6136-4c58-8d82-9c09ffcca019",
+              "name": "Server is alive.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1763,\n        \"key_1\": 8226.685413135008\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37e0f52e-bcd1-4bcb-887e-9f8637c3d471",
+              "name": "Server is not alive.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1763,\n        \"key_1\": 8226.685413135008\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b3bc821-6337-4622-8903-a9371ee12fb2",
+          "name": "Startup health check",
+          "request": {
+            "name": "Startup health check",
+            "description": {
+              "content": "Returns startup status of the server.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "health",
+                "started"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13ef29a7-2060-4810-8c2d-50cd2a276959",
+              "name": "Server has started.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    "started"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1763,\n        \"key_1\": 8226.685413135008\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e6b1193-f7b4-4617-af3e-3c73caaa7776",
+              "name": "Server has not completed startup.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health",
+                    "started"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f448eda3-0b8a-4c6d-ba85-64cd01ee605d",
+      "name": "Metrics",
+      "description": {
+        "content": "MicroProfile Metrics endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "615f6bb4-c3b0-48cb-9cc4-60cd80ae9601",
+          "name": "Get all metrics",
+          "request": {
+            "name": "Get all metrics",
+            "description": {
+              "content": "Returns all MicroProfile Metrics in Prometheus or JSON format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8f57cf9-fae4-47e5-b851-d245f3dfa66d",
+              "name": "All metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Response format.",
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 475.2448948643462,\n  \"key_1\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92443f5d-e432-45cd-a937-23530ca16a23",
+          "name": "Get base metrics",
+          "request": {
+            "name": "Get base metrics",
+            "description": {
+              "content": "Returns base JVM and runtime metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics",
+                "base"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9df4e83-5c89-456b-8ccd-077cc411f1a1",
+              "name": "Base metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    "base"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "871983b1-c3c8-41b2-b443-22d6ed477ef9",
+          "name": "Get vendor metrics",
+          "request": {
+            "name": "Get vendor metrics",
+            "description": {
+              "content": "Returns Liberty-specific vendor metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics",
+                "vendor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "089d8b1c-1b2b-4f26-a721-0200c9cf2542",
+              "name": "Vendor metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    "vendor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54909a10-8784-422d-8979-0ec435c86577",
+          "name": "Get application metrics",
+          "request": {
+            "name": "Get application metrics",
+            "description": {
+              "content": "Returns application-defined metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics",
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d65da3ef-2975-4177-b1fe-84370578cea5",
+              "name": "Application metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7804e8de-d269-4c01-b641-87454ecf6f97",
+      "name": "Configuration",
+      "description": {
+        "content": "Server configuration management via Admin REST Connector.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ac66781-c760-42b0-8baa-ed99a46eb0be",
+          "name": "Get server configuration",
+          "request": {
+            "name": "Get server configuration",
+            "description": {
+              "content": "Returns the effective server configuration as JSON via the Admin REST Connector.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ibm",
+                "api",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "db3c7d16-3e23-4dc8-b12e-d3a063ce4ecc",
+              "name": "Server configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ibm",
+                    "api",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 475.2448948643462,\n  \"key_1\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86d56ab2-85cf-4f4e-9393-8a8ff277a416",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ibm",
+                    "api",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7935ec69-7fb9-4513-b0b5-3b615c5c3377",
+          "name": "Get specific configuration element",
+          "request": {
+            "name": "Get specific configuration element",
+            "description": {
+              "content": "Returns a specific configuration element (e.g., dataSource, httpEndpoint) from the server config.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ibm",
+                "api",
+                "config",
+                ":elementName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "elementName",
+                  "description": "(Required) Configuration element name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3df82659-135f-4858-8eec-eb48459c6c53",
+              "name": "Configuration element.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ibm",
+                    "api",
+                    "config",
+                    ":elementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "elementName",
+                      "description": "(Required) Configuration element name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 475.2448948643462,\n  \"key_1\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d19699b-0346-4b33-b9b9-c5bafb9d33d7",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ibm",
+                    "api",
+                    "config",
+                    ":elementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "elementName",
+                      "description": "(Required) Configuration element name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56aaddd3-fd25-4689-a9fb-18b08995e67e",
+              "name": "Element not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ibm",
+                    "api",
+                    "config",
+                    ":elementName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "elementName",
+                      "description": "(Required) Configuration element name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0baafc7c-ea30-4511-936a-4634827b8805",
+          "name": "Validate server configuration",
+          "request": {
+            "name": "Validate server configuration",
+            "description": {
+              "content": "Validates the server configuration and returns any warnings or errors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ibm",
+                "api",
+                "validation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2d74d624-eac2-407c-a1d2-f24d89ca46c9",
+              "name": "Validation results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ibm",
+                    "api",
+                    "validation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 475.2448948643462,\n  \"key_1\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost:9443",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c9f938ae-a8be-468c-bcfd-d3cfd5180370",
+    "name": "Open Liberty Admin REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST management API provided by Open Liberty for managing the server, deploying applications, querying MicroProfile Health and Metrics, and managing server configuration through the REST connector.\n\nContact Support:\n Name: Open Liberty",
+      "type": "text/plain"
+    }
+  }
+}
