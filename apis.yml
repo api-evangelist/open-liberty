@@ -42,6 +42,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/openapi/open-liberty-admin.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/open-liberty-agentic-access.yml
   - type: DomainSecurity
     url: security/open-liberty-domain-security.yml
   - type: Authentication
