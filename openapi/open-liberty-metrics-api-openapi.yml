@@ -1,0 +1,83 @@
+openapi: 3.0.3
+info:
+  title: Open Liberty Admin REST Configuration Metrics API
+  description: REST management API provided by Open Liberty for managing the server, deploying applications, querying MicroProfile Health and Metrics, and managing server configuration through the REST connector.
+  version: 24.0.0
+  contact:
+    name: Open Liberty
+    url: https://openliberty.io/
+  license:
+    name: Eclipse Public License 1.0
+    url: https://www.eclipse.org/legal/epl-v10.html
+servers:
+- url: https://localhost:9443
+  description: Default Open Liberty HTTPS admin endpoint
+tags:
+- name: Metrics
+  description: MicroProfile Metrics endpoints.
+paths:
+  /metrics:
+    get:
+      operationId: getAllMetrics
+      summary: Get all metrics
+      description: Returns all MicroProfile Metrics in Prometheus or JSON format.
+      tags:
+      - Metrics
+      parameters:
+      - name: Accept
+        in: header
+        description: Response format.
+        schema:
+          type: string
+          enum:
+          - application/json
+          - text/plain
+          default: text/plain
+      responses:
+        '200':
+          description: All metrics.
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: Prometheus format metrics.
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /metrics/base:
+    get:
+      operationId: getBaseMetrics
+      summary: Get base metrics
+      description: Returns base JVM and runtime metrics.
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: Base metrics.
+  /metrics/vendor:
+    get:
+      operationId: getVendorMetrics
+      summary: Get vendor metrics
+      description: Returns Liberty-specific vendor metrics.
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: Vendor metrics.
+  /metrics/application:
+    get:
+      operationId: getApplicationMetrics
+      summary: Get application metrics
+      description: Returns application-defined metrics.
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: Application metrics.
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Admin user credentials configured in server.xml.

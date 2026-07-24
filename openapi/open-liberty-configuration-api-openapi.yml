@@ -1,0 +1,88 @@
+openapi: 3.0.3
+info:
+  title: Open Liberty Admin REST Configuration API
+  description: REST management API provided by Open Liberty for managing the server, deploying applications, querying MicroProfile Health and Metrics, and managing server configuration through the REST connector.
+  version: 24.0.0
+  contact:
+    name: Open Liberty
+    url: https://openliberty.io/
+  license:
+    name: Eclipse Public License 1.0
+    url: https://www.eclipse.org/legal/epl-v10.html
+servers:
+- url: https://localhost:9443
+  description: Default Open Liberty HTTPS admin endpoint
+tags:
+- name: Configuration
+  description: Server configuration management via Admin REST Connector.
+paths:
+  /ibm/api/config:
+    get:
+      operationId: getServerConfig
+      summary: Get server configuration
+      description: Returns the effective server configuration as JSON via the Admin REST Connector.
+      tags:
+      - Configuration
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: Server configuration.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          description: Unauthorized.
+  /ibm/api/config/{elementName}:
+    get:
+      operationId: getConfigElement
+      summary: Get specific configuration element
+      description: Returns a specific configuration element (e.g., dataSource, httpEndpoint) from the server config.
+      tags:
+      - Configuration
+      security:
+      - basicAuth: []
+      parameters:
+      - name: elementName
+        in: path
+        required: true
+        description: Configuration element name.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Configuration element.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Element not found.
+  /ibm/api/validation:
+    get:
+      operationId: validateConfig
+      summary: Validate server configuration
+      description: Validates the server configuration and returns any warnings or errors.
+      tags:
+      - Configuration
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: Validation results.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Admin user credentials configured in server.xml.

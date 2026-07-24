@@ -1,0 +1,126 @@
+openapi: 3.0.3
+info:
+  title: Open Liberty Admin REST Configuration Health API
+  description: REST management API provided by Open Liberty for managing the server, deploying applications, querying MicroProfile Health and Metrics, and managing server configuration through the REST connector.
+  version: 24.0.0
+  contact:
+    name: Open Liberty
+    url: https://openliberty.io/
+  license:
+    name: Eclipse Public License 1.0
+    url: https://www.eclipse.org/legal/epl-v10.html
+servers:
+- url: https://localhost:9443
+  description: Default Open Liberty HTTPS admin endpoint
+tags:
+- name: Health
+  description: MicroProfile Health check endpoints.
+paths:
+  /health:
+    get:
+      operationId: getOverallHealth
+      summary: Overall health check
+      description: Returns the overall health status combining all readiness and liveness checks (MicroProfile Health).
+      tags:
+      - Health
+      responses:
+        '200':
+          description: All health checks pass.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: One or more health checks failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /health/ready:
+    get:
+      operationId: getReadiness
+      summary: Readiness health check
+      description: Returns readiness status of the server and deployed applications.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Server is ready.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: Server is not ready.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /health/live:
+    get:
+      operationId: getLiveness
+      summary: Liveness health check
+      description: Returns liveness status of the server.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Server is alive.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: Server is not alive.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /health/started:
+    get:
+      operationId: getStartup
+      summary: Startup health check
+      description: Returns startup status of the server.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Server has started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: Server has not completed startup.
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - UP
+          - DOWN
+        checks:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of the health check.
+              status:
+                type: string
+                enum:
+                - UP
+                - DOWN
+              data:
+                type: object
+                description: Additional data from the health check.
+                additionalProperties: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Admin user credentials configured in server.xml.
