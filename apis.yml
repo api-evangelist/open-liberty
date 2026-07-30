@@ -4,7 +4,20 @@ description: >-
   Open Liberty is a lightweight, open source Java application server from IBM for building cloud-native microservices
   and applications with full support for Jakarta EE and MicroProfile.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/open-liberty.png
 tags:
   - Application Server
   - Cloud Native
@@ -18,29 +31,54 @@ created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: open-liberty:open-liberty
-    name: Open Liberty
-    description: >-
-      Open Liberty is a lightweight, open source Java application server from IBM for building cloud-native
-      microservices and applications with full support for Jakarta EE and MicroProfile.
-    humanURL: https://openliberty.io/
-    tags:
-      - Application Server
-      - Cloud Native
-      - IBM
-      - Jakarta EE
-      - Java
-      - MicroProfile
-      - Microservices
-    properties:
-      - type: Documentation
-        url: https://openliberty.io/docs/
-      - type: GettingStarted
-        url: https://openliberty.io/start/
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/json-schema/server-config.json
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/openapi/open-liberty-admin.json
+- aid: open-liberty:open-liberty-configuration-api
+  name: Open Liberty Configuration API
+  description: Server configuration management via Admin REST Connector.
+  humanURL: https://openliberty.io/
+  tags:
+  - Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/open-liberty-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://openliberty.io/docs/
+  - type: GettingStarted
+    url: https://openliberty.io/start/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/json-schema/server-config.json
+- aid: open-liberty:open-liberty-health-api
+  name: Open Liberty Health API
+  description: MicroProfile Health check endpoints.
+  humanURL: https://openliberty.io/
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/open-liberty-health-api-openapi.yml
+  - type: Documentation
+    url: https://openliberty.io/docs/
+  - type: GettingStarted
+    url: https://openliberty.io/start/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/json-schema/server-config.json
+- aid: open-liberty:open-liberty-metrics-api
+  name: Open Liberty Metrics API
+  description: MicroProfile Metrics endpoints.
+  humanURL: https://openliberty.io/
+  tags:
+  - Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/open-liberty-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://openliberty.io/docs/
+  - type: GettingStarted
+    url: https://openliberty.io/start/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/json-schema/server-config.json
 common:
   - type: AgenticAccess
     url: agentic-access/open-liberty-agentic-access.yml
