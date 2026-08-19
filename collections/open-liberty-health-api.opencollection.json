@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open Liberty Admin REST Configuration Health API",
+    "version": "24.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Overall health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/health"
+          },
+          "docs": "Returns the overall health status combining all readiness and liveness checks (MicroProfile Health)."
+        },
+        {
+          "info": {
+            "name": "Readiness health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/health/ready"
+          },
+          "docs": "Returns readiness status of the server and deployed applications."
+        },
+        {
+          "info": {
+            "name": "Liveness health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/health/live"
+          },
+          "docs": "Returns liveness status of the server."
+        },
+        {
+          "info": {
+            "name": "Startup health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/health/started"
+          },
+          "docs": "Returns startup status of the server."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

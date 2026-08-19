@@ -1,0 +1,288 @@
+{
+  "item": [
+    {
+      "id": "212a4a85-9edb-462f-99af-5b0644c3c5f7",
+      "name": "Metrics",
+      "description": {
+        "content": "MicroProfile Metrics endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fd850290-d291-4f1f-b105-cb505325e86b",
+          "name": "Get all metrics",
+          "request": {
+            "name": "Get all metrics",
+            "description": {
+              "content": "Returns all MicroProfile Metrics in Prometheus or JSON format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca890743-31b7-4afa-b908-6ff571125fed",
+              "name": "All metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Response format.",
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f42fce11-ff13-4d29-b140-962fa9b16e2d",
+          "name": "Get base metrics",
+          "request": {
+            "name": "Get base metrics",
+            "description": {
+              "content": "Returns base JVM and runtime metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics",
+                "base"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "880eb92b-dba9-4aca-9e05-45ce87062159",
+              "name": "Base metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    "base"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f65ad476-1560-4e7d-8e7e-76442c119fc2",
+          "name": "Get vendor metrics",
+          "request": {
+            "name": "Get vendor metrics",
+            "description": {
+              "content": "Returns Liberty-specific vendor metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics",
+                "vendor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ddf16ed-d022-468f-8a88-d19a8bfd4a60",
+              "name": "Vendor metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    "vendor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e17e699b-7830-4e13-a608-4dd786a16e18",
+          "name": "Get application metrics",
+          "request": {
+            "name": "Get application metrics",
+            "description": {
+              "content": "Returns application-defined metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metrics",
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83ca5292-763f-4b0d-9fa6-b5b2da43647f",
+              "name": "Application metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost:9443",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8975fb29-7d9f-4b4e-9950-146f349698ce",
+    "name": "Open Liberty Admin REST Configuration Metrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST management API provided by Open Liberty for managing the server, deploying applications, querying MicroProfile Health and Metrics, and managing server configuration through the REST connector.\n\nContact Support:\n Name: Open Liberty",
+      "type": "text/plain"
+    }
+  }
+}

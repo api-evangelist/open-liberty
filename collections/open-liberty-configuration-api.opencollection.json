@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open Liberty Admin REST Configuration API",
+    "version": "24.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get server configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/ibm/api/config",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns the effective server configuration as JSON via the Admin REST Connector."
+        },
+        {
+          "info": {
+            "name": "Get specific configuration element",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/ibm/api/config/:elementName",
+            "params": [
+              {
+                "name": "elementName",
+                "value": "",
+                "type": "path",
+                "description": "Configuration element name."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns a specific configuration element (e.g., dataSource, httpEndpoint) from the server config."
+        },
+        {
+          "info": {
+            "name": "Validate server configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost:9443/ibm/api/validation",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates the server configuration and returns any warnings or errors."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
