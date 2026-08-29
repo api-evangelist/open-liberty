@@ -4,6 +4,17 @@ description: >-
   Open Liberty is a lightweight, open source Java application server from IBM for building cloud-native microservices
   and applications with full support for Jakarta EE and MicroProfile.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
