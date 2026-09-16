@@ -48,7 +48,7 @@ tags_raw:
   - Microservices
 url: https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml
 created: '2026-03-26'
-modified: '2026-05-19'
+modified: '2026-09-13'
 specificationVersion: '0.23'
 apis:
 - aid: open-liberty:open-liberty-configuration-api
@@ -116,6 +116,9 @@ common:
     url: https://github.com/OpenLiberty
   - type: Blog
     url: https://openliberty.io/blog/
+  - name: MCP Documentation
+    url: https://openliberty.io/blog/2026/09/08/26.0.0.9.html
+    type: MCPDocumentation
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
