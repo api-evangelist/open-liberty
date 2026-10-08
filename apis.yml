@@ -100,6 +100,12 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/json-schema/server-config.json
 common:
+  - type: Plans
+    url: plans/open-liberty-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/open-liberty-rate-limits.yml
+  - type: FinOps
+    url: finops/open-liberty-finops.yml
   - type: AgenticAccess
     url: agentic-access/open-liberty-agentic-access.yml
   - type: DomainSecurity
