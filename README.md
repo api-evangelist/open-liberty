@@ -1,4 +1,4 @@
-# Open Liberty (open-liberty)
+# Open Liberty
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,63 +66,133 @@
 
 Open Liberty is a lightweight, open source Java application server from IBM for building cloud-native microservices and applications with full support for Jakarta EE and MicroProfile.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/apis.yml)
+**Areas:** Application Server · Cloud-Native · IBM · Jakarta EE · Java · MicroProfile · Microservices
 
-## Scope
+## Open Liberty on APIs.io
 
-- **Type:** Index
+Everything profiled for Open Liberty is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/open-liberty/](https://apis.io/providers/open-liberty/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Application Server
-- Cloud Native
-- IBM
-- Jakarta EE
-- Java
-- MicroProfile
-- Microservices
+- [Open Liberty Configuration API](https://apis.io/apis/open-liberty/open-liberty-configuration-api/) — Server configuration management via Admin REST Connector.
+- [Open Liberty Health API](https://apis.io/apis/open-liberty/open-liberty-health-api/) — MicroProfile Health check endpoints.
+- [Open Liberty Metrics API](https://apis.io/apis/open-liberty/open-liberty-metrics-api/) — MicroProfile Metrics endpoints.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Open Liberty
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Open Liberty is a lightweight, open source Java application server from IBM for building cloud-native microservices and applications with full support for Jakarta EE and MicroProfile.
+- [Open Liberty Agentic Access](https://apis.io/agentic-access/open-liberty/open-liberty-agentic-access/)
 
-- **Human URL:** [https://openliberty.io/](https://openliberty.io/)
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Application Server
-- Cloud Native
-- IBM
-- Jakarta EE
-- Java
-- MicroProfile
-- Microservices
+- [Open Liberty Server Configuration](https://apis.io/schemas/open-liberty/server-config/)
 
-#### Properties
+#### Collections (4)
 
-- [Documentation](https://openliberty.io/docs/)
-- [Getting Started](https://openliberty.io/start/)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/json-schema/server-config.json) — [JSON Schema](https://json-schema.org/specification)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/open-liberty/refs/heads/main/openapi/open-liberty-admin.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/open-liberty-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/open-liberty-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Open Liberty Admin REST API](https://apis.io/collections/open-liberty/open-open-liberty-admin/)
+- [Open Liberty Admin REST Configuration API](https://apis.io/collections/open-liberty/open-open-liberty-configuration-api/)
+- [Open Liberty Admin REST Configuration Health API](https://apis.io/collections/open-liberty/open-open-liberty-health-api/)
+- [Open Liberty Admin REST Configuration Metrics API](https://apis.io/collections/open-liberty/open-open-liberty-metrics-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Open Liberty — jsonschema rules](https://apis.io/rules/open-liberty/open-liberty-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Open Liberty Authentication](https://apis.io/security/open-liberty/open-liberty-authentication/)
+- [Open Liberty Domain Security](https://apis.io/security/open-liberty/open-liberty-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Open Liberty Plans Pricing](https://apis.io/plans/open-liberty/open-liberty-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Open Liberty Rate Limits](https://apis.io/rate-limits/open-liberty/open-liberty-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Open Liberty Finops](https://apis.io/finops/open-liberty/open-liberty-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://openliberty.io/)
 - [Documentation](https://openliberty.io/docs/)
-- [Getting Started](https://openliberty.io/start/)
-- [GitHub Organization](https://github.com/OpenLiberty)
+- [Getting started](https://openliberty.io/start/)
 - [Blog](https://openliberty.io/blog/)
+- [GitHub](https://github.com/OpenLiberty)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 46.1 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 7.9 |
+
+**Agent readiness 27.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/open-liberty/](https://apis.io/providers/open-liberty/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Open Liberty: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/open-liberty/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
